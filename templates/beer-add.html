@@ -1,0 +1,36 @@
+{% extends "home-base.html"%} {% block title %}Add Beers{% endblock %} {% block page_content%}
+
+<!-- Page Content -->
+<div class="container">
+  <h1 class="mt-5"><i class="fa fa-beer" aria-hidden="true"></i> Add Beers:</h1>
+  <form action="/beer/add" method="post">
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" type="text" name="name" placeholder="Name of the Beer" required="true">
+    </div>
+    <div class="form-group">
+      <label>Hops</label>
+      <input class="form-control" type="text" name="hops" placeholder="Type of Hops" required="true">
+    </div>
+    <div class="form-group">
+      <label>Brewery</label>
+      <input class="form-control" type="text" name="brewery" placeholder="Name of Brewery" required="true">
+    </div>
+
+    <div class="form-group">
+      <label>Style</label>
+      <select class="form-control" name="style">
+        {% for style in styles %}
+            <option>{{style.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      Style not in the list? <a href="/style/add" class="btn btn-success" role="button" aria-disabled="true">Add Styles</a>
+    </div>
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary">Add Beer</button>
+  </form>
+</div>
+
+{% endblock%}

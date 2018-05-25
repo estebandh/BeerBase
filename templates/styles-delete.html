@@ -4,15 +4,15 @@
 
   <!-- Page Content -->
   <div class="container">
-    <h1 class="mt-5"><i class="fa fa-music" aria-hidden="true"></i> Delete Artist:</h1>
-    <form action="/artist/delete/{{artist.id}}" method="post">
+    <h1 class="mt-5"><i class="fa fa-beer" aria-hidden="true"></i> Delete Style:</h1>
+    <form action="/style/delete/{{style.id}}" method="post">
       <div class="form-group">
         <label>Name</label>
-        <input class="form-control" type="text" name="name" value="{{artist.name}}" required="true" readonly="true">
+        <input class="form-control" type="text" name="name" value="{{style.name}}" required="true" readonly="true">
       </div>
       <div class="form-group">
         <label>About</label>
-        <textarea class="form-control" name="about" required="true" readonly="true">{{artist.about}}</textarea>
+        <textarea class="form-control" name="about" required="true" readonly="true">{{style.about}}</textarea>
       </div>
       <button type="submit" class="btn btn-danger" id="delete_btn">Delete</button>
     </form>
@@ -25,7 +25,7 @@
   <script>
   $(document).ready(function () {
     $('#delete_btn').click(function () {
-      if (! confirm('All related songs will be deleted too!! Are you sure?')) {
+      if (! confirm('All related beers will be deleted too!! Are you sure?')) {
         return false;
       }
     })

@@ -23,3 +23,9 @@ To initialize the database:
 To run the development server (use `-d` to enable debugger and reloader):
 
     $ python manage.py runserver -d
+
+## Database Information:
+
+### Tables:
+1. Beer Genres
+2. Beers

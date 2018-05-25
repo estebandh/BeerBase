@@ -2,6 +2,10 @@ body {
   padding-top: 54px;
 }
 
+h2 {
+  font-family: 'Modern Antiqua', cursive;
+}
+
 .bottom-margin {
   margin-bottom: 10px;
 }

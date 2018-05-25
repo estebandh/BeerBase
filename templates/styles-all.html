@@ -1,14 +1,14 @@
 {% extends "home-base.html"%}
-{% block title %}All Artists{% endblock %}
+{% block title %}All Styles{% endblock %}
 {% block page_content%}
 
   <!-- Page Content -->
   <div class="container">
-    <h1 class="mt-5"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Artists:</h1>
+    <h1 class="mt-5"><i class="fa fa-beer" aria-hidden="true"></i> Styles:</h1>
     <div class="row bottom-margin">
-      <a href="/artist/add" class="btn btn-primary" role="button" aria-disabled="true">Add Artists</a>
+      <a href="/style/add" class="btn btn-primary" role="button" aria-disabled="true">Add Style</a>
     </div>
-    {% if artists %}
+    {% if styles %}
       <table class="table">
         <thead>
           <tr>
@@ -19,22 +19,22 @@
           </tr>
         </thead>
         <tbody>
-          {% for artist in artists %}
+          {% for style in styles %}
           <tr>
-              <th scope="row">{{artist.id}}</th>
-              <td>{{artist.name}}</td>
-              <td>{{artist.about}}</td>
+              <th scope="row">{{style.id}}</th>
+              <td>{{style.name}}</td>
+              <td>{{style.about}}</td>
               <td>
-                <a href="/artist/edit/{{artist.id}}" class="btn btn-success" role="button">Edit</a>
-                <a href="/artist/delete/{{artist.id}}" class="btn btn-danger" role="button">Delete</a>
-                <button class="btn btn-warning delete_ajax_btn" role="button" data-artist-id="{{artist.id}}">Delete Ajax</a>
+                <a href="/style/edit/{{style.id}}" class="btn btn-success" role="button">Edit</a>
+                <a href="/style/delete/{{style.id}}" class="btn btn-danger" role="button">Delete</a>
+                <button class="btn btn-warning delete_ajax_btn" role="button" data-style-id="{{style.id}}">Delete Ajax</a>
               </td>
           </tr>
           {% endfor%}
         </tbody>
       </table>
     {% else %}
-      <h3>there is no artists in the database yet.</h3>
+      <h3>There are no styles in the database yet.</h3>
     {% endif %}
   </div>
 
@@ -45,12 +45,12 @@
 <script>
   $(document).ready(function() {
     $(".delete_ajax_btn").click(function(event) {
-      var artist_id = $(this).data("artist-id");
-      // get the table row of this song
+      var style_id = $(this).data("style-id");
+      // get the table row of this beer
       var row = $(this).parent().parent();
       swal({
           title: "Are you sure?",
-          text: "All songs of this artist will be deleted too!",
+          text: "All beers of this style will be deleted too!",
           type: "warning",
           html: true,
           showCancelButton: true,
@@ -63,7 +63,7 @@
           if (isConfirm) {
             $.ajax({
                 type: "DELETE",
-                url: "/api/artist/" + artist_id,
+                url: "/api/style/" + style_id,
                 success: function(response) {
                   console.log(response);
                   row.remove(); // remove the table row

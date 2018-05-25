@@ -1,0 +1,32 @@
+{% extends "home-base.html"%}
+{% block title %}Edit Beer{% endblock %}
+{% block page_content%}
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-music" aria-hidden="true"></i> Edit Beer:</h1>
+    <form action="/beer/edit/{{beer.id}}" method="post">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" name="name" value="{{beer.name}}" required="true">
+      </div>
+      <div class="form-group">
+        <label>Hops</label>
+        <textarea class="form-control" name="hops" required="true">{{beer.hops}}</textarea>
+      </div>
+      <div class="form-group">
+        <label>Brewery</label>
+        <textarea class="form-control" name="brewery" required="true">{{beer.brewery}}</textarea>
+      </div>
+      <div class="form-group">
+        <label>Style</label>
+        <textarea class="form-control" name="style" required="true">{{beer.style.name}}</textarea>
+      </div>
+      <div class="form-group">
+        Style not in the list? <a href="/style/add" class="btn btn-success" role="button" aria-disabled="true">Add Artists</a>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+
+{% endblock%}
